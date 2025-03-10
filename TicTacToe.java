@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class TicTacToe{
 
 private static char[][] board = new char [3][3];
+private static char currentPlayer = 'X';
 
     public static void main(String[] args){
         System.out.println("Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar");
@@ -19,6 +20,9 @@ private static char[][] board = new char [3][3];
         int column = Integer.parseInt(turns1[1]); 
    
         System.out.println("Tu respuesta es " + row + " y " + column);
+        board[row][column] = currentPlayer;
+        printBoard();
+        scanner.close();
     }
 
     private static void createBoard(){
@@ -54,7 +58,7 @@ private static char[][] board = new char [3][3];
 
 // Crear función de empate despues de 9 turnos
 
-// Crear el scanner para recopilar el turno de x
+// Crear el scanner para recopilar el turno de x OK
 
 // Comprobar si lo que pide x está correcto. Mensaje de error. Ejemplo: Poner x fuera del juego y verificar si el espacio ya está ocupado. 
 
