@@ -9,6 +9,7 @@ private static char currentPlayer = 'X';
         System.out.println("Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar");
         createBoard();
         printBoard();
+       
 
         Scanner scanner = new Scanner(System.in);
 
@@ -18,10 +19,11 @@ private static char currentPlayer = 'X';
         String[] turns1 = turn1.split("\t");
         int row = Integer.parseInt(turns1[0]);    
         int column = Integer.parseInt(turns1[1]); 
-   
+        
+
         System.out.println("Tu respuesta es " + row + " y " + column);
-        board[row][column] = currentPlayer;
-        printBoard();
+        validMovement(row, column, currentPlayer);
+    
         scanner.close();
     }
 
@@ -31,6 +33,22 @@ private static char currentPlayer = 'X';
                 board[row][column] = '_';
             }
         }
+    }
+
+    private static boolean validMovement (int row, int column, char currentPlayer){
+        if (row < 0 || row > 2 || column < 0 || column > 2) {
+            System.out.println("Movimiento inválido. Ingresar numero de 0 a 2");
+            return false;
+    } else {
+        if (board[row][column] == '_' ) {
+            board[row][column] = currentPlayer;
+            printBoard();
+            return true;
+        } else {
+            System.out.println("Espacio ocupado");
+            return false;
+        }
+    }
     }
 
     private static void printBoard(){
@@ -45,6 +63,8 @@ private static char currentPlayer = 'X';
         }
     }
 }
+
+    
 
 //Declarar la matriz (tablero) OK
 
