@@ -9,7 +9,6 @@ private static char currentPlayer = 'X';
         System.out.println("Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar");
         createBoard();
         printBoard();
-       
 
         Scanner scanner = new Scanner(System.in);
 
@@ -20,7 +19,6 @@ private static char currentPlayer = 'X';
         int row = Integer.parseInt(turns1[0]);    
         int column = Integer.parseInt(turns1[1]); 
         
-
         System.out.println("Tu respuesta es " + row + " y " + column);
         validMovement(row, column, currentPlayer);
     
@@ -35,14 +33,24 @@ private static char currentPlayer = 'X';
         }
     }
 
+    private static void changePlayer(){
+        if (currentPlayer == 'X') {
+            currentPlayer = '0';
+        } else {
+            currentPlayer = 'X';
+        }
+        System.out.println("Ahora toca " + currentPlayer);
+        }
+
     private static boolean validMovement (int row, int column, char currentPlayer){
         if (row < 0 || row > 2 || column < 0 || column > 2) {
-            System.out.println("Movimiento inválido. Ingresar numero de 0 a 2");
+            System.out.println("Movimiento inválido. Ingresar número de 0 a 2");
             return false;
     } else {
         if (board[row][column] == '_' ) {
             board[row][column] = currentPlayer;
             printBoard();
+            changePlayer();
             return true;
         } else {
             System.out.println("Espacio ocupado");
@@ -80,7 +88,7 @@ private static char currentPlayer = 'X';
 
 // Crear el scanner para recopilar el turno de x OK
 
-// Comprobar si lo que pide x está correcto. Mensaje de error. Ejemplo: Poner x fuera del juego y verificar si el espacio ya está ocupado. 
+// Comprobar si lo que pide x está correcto. Mensaje de error. Ejemplo: Poner x fuera del juego y verificar si el espacio ya está ocupado. OK
 
 // Imprimir X en el lugar que tiene que estar en el tablero
 
