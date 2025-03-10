@@ -1,10 +1,24 @@
+import java.util.Scanner;
+
 public class TicTacToe{
 
 private static char[][] board = new char [3][3];
+
     public static void main(String[] args){
+        System.out.println("Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar");
         createBoard();
         printBoard();
-        System.out.println("Holi esto va a ser nuestro juegooo!");
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Haz tu primer movimiento: Elije la posición de fila, teclea el tabulador, y luego, elije la posición de columna");
+        String turn1 = scanner.nextLine();
+    
+        String[] turns1 = turn1.split("\t");
+        int row = Integer.parseInt(turns1[0]);    
+        int column = Integer.parseInt(turns1[1]); 
+   
+        System.out.println("Tu respuesta es " + row + " y " + column);
     }
 
     private static void createBoard(){
@@ -34,7 +48,7 @@ private static char[][] board = new char [3][3];
 
 // Crear guion bajo tablero OK
 
-// Crear un mensaje de normas. Imprimir este mensaje al iniciar el juego. 
+// Crear un mensaje de normas. Imprimir este mensaje al iniciar el juego. Ok
 
 // Crear la función de ganar. 
 
