@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TicTacToe{
+public class TicTacToe {
 
 private static char[][] board = new char [3][3];
 private static char currentPlayer = 'X';
@@ -9,20 +9,7 @@ private static char currentPlayer = 'X';
         System.out.println("Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar");
         createBoard();
         printBoard();
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Haz tu primer movimiento: Elije la posición de fila, teclea el tabulador, y luego, elije la posición de columna");
-        String turn1 = scanner.nextLine();
-    
-        String[] turns1 = turn1.split("\t");
-        int row = Integer.parseInt(turns1[0]);    
-        int column = Integer.parseInt(turns1[1]); 
-        
-        System.out.println("Tu respuesta es " + row + " y " + column);
-        validMovement(row, column, currentPlayer);
-    
-        scanner.close();
+        takeTurn(currentPlayer);
     }
 
     private static void createBoard(){
@@ -70,9 +57,26 @@ private static char currentPlayer = 'X';
             System.out.println("\n");
         }
     }
+
+
+    public static void takeTurn( char currentPlayer){
+   
+    Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Haz tu movimiento: Elije la posición de fila, teclea el tabulador, y luego, elije la posición de columna");
+            String turn1 = scanner.nextLine();
+
+            String[] turns1 = turn1.split("\t");
+            int row = Integer.parseInt(turns1[0]);    
+            int column = Integer.parseInt(turns1[1]); 
+        System.out.println("Tu respuesta es " + row + " y " + column);
+            validMovement(row, column, currentPlayer);
+            scanner.close();
+    }       
 }
 
-    
+
+
 
 //Declarar la matriz (tablero) OK
 
