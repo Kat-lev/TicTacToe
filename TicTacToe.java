@@ -9,7 +9,11 @@ private static char currentPlayer = 'X';
         System.out.println("Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar");
         createBoard();
         printBoard();
-        takeTurn(currentPlayer);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Haz tu movimiento: Elije la posición de fila, teclea el tabulador, y luego, elije la posición de columna");
+        String turn1 = scanner.nextLine();
+        takeTurn(currentPlayer, turn1);
+        scanner.close();
     }
 
     private static void createBoard(){
@@ -22,7 +26,7 @@ private static char currentPlayer = 'X';
 
     private static void changePlayer(){
         if (currentPlayer == 'X') {
-            currentPlayer = '0';
+            currentPlayer = 'O';
         } else {
             currentPlayer = 'X';
         }
@@ -59,19 +63,15 @@ private static char currentPlayer = 'X';
     }
 
 
-    public static void takeTurn( char currentPlayer){
-   
-    Scanner scanner = new Scanner(System.in);
+    public static void takeTurn(char currentPlayer, String turn1){
         
-        System.out.println("Haz tu movimiento: Elije la posición de fila, teclea el tabulador, y luego, elije la posición de columna");
-            String turn1 = scanner.nextLine();
+        // System.out.println("Haz tu movimiento: Elije la posición de fila, teclea el tabulador, y luego, elije la posición de columna");
 
             String[] turns1 = turn1.split("\t");
             int row = Integer.parseInt(turns1[0]);    
             int column = Integer.parseInt(turns1[1]); 
         System.out.println("Tu respuesta es " + row + " y " + column);
             validMovement(row, column, currentPlayer);
-            scanner.close();
     }       
 }
 
