@@ -10,6 +10,7 @@ private static int turnCount = 0;
         System.out.println("Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar");
         createBoard();
         printBoard();
+        
      
         Scanner scanner = new Scanner(System.in);
             while (turnCount < 9) { 
@@ -18,14 +19,16 @@ private static int turnCount = 0;
                 takeTurn(currentPlayer, turnInput);
                 
                 turnCount++;
-                if (checkWinner (turnCount)) {
-                    System.out.println("¡Jugador " + currentPlayer + " ha ganado!");
-                    break;
-                }
+                if (checkRound (turnCount) == true) {
+                    System.out.println("Han pasado " + turnCount + " movimientos");
+                    checkWinner(board, currentPlayer);  
+                } 
+                changePlayer();
                 // if (isBoardFull()) {
                 //     System.out.println("¡Empate! No quedan espacios disponibles.");
                 //     break;
                
+
                 }
                 
         scanner.close();
@@ -55,7 +58,7 @@ private static int turnCount = 0;
         if (board[row][column] == '_' ) {
             board[row][column] = currentPlayer;
             printBoard();
-            changePlayer();
+            //changePlayer();
             return true;
         } else {
             System.out.println("Espacio ocupado");
@@ -64,7 +67,7 @@ private static int turnCount = 0;
     }
     }
 
-    private static boolean checkWinner(int turnCount){
+    private static boolean checkRound(int turnCount){
         if(turnCount >= 5){
         System.out.println("Valoramos");
         return true;
@@ -75,6 +78,24 @@ private static int turnCount = 0;
         //luego: línea de 3
     }
 
+    private static boolean checkWinner(char[][] board, char currentPlayer ){
+      for (int i = 0; i < 3; i++){
+        if(board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer){
+        System.out.println("Fila ganada " +  currentPlayer);
+        return true; 
+        } else {
+        System.out.println("Nadie gana");
+        }
+    }
+        return false;
+    }
+   //checkWinner
+    //fila 0
+    //si: hay un _ en la fila, 
+    //no hace falta pasar al próximo paso (break)
+    //si no hay, pasa a comprobar si hay 3x currentPlayer en la fila
+    //si no hay ganador, pasa a la fila 1
+    
     private static void printBoard(){
         System.out.println("\n");
         for (int row = 0; row < 3; row++) {
