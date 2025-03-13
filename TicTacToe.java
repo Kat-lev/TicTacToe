@@ -18,7 +18,7 @@ private static int turnCount = 0;
                 takeTurn(currentPlayer, turnInput);
                 
                 turnCount++;
-                if (checkWinner(turnCount)) {
+                if (checkWinner (turnCount)) {
                     System.out.println("¡Jugador " + currentPlayer + " ha ganado!");
                     break;
                 }
@@ -88,13 +88,10 @@ private static int turnCount = 0;
     }
 
 
-    public static void takeTurn(char currentPlayer, String turn1){
-        
-        // System.out.println("Haz tu movimiento: Elije la posición de fila, teclea el tabulador, y luego, elije la posición de columna");
-
-            String[] turns1 = turn1.split("\t");
-            int row = Integer.parseInt(turns1[0]);    
-            int column = Integer.parseInt(turns1[1]); 
+    public static void takeTurn(char currentPlayer, String turnInput){
+            String[] turnsInput = turnInput.split("\t");
+            int row = Integer.parseInt(turnsInput[0]);    
+            int column = Integer.parseInt(turnsInput[1]); 
         System.out.println("Tu respuesta es " + row + " y " + column);
             validMovement(row, column, currentPlayer);
     }       
