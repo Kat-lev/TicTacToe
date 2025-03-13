@@ -4,30 +4,30 @@ public class TicTacToe {
 
 private static char[][] board = new char [3][3];
 private static char currentPlayer = 'X';
+private static int turnCount = 0;
 
     public static void main(String[] args){
         System.out.println("Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar");
         createBoard();
         printBoard();
         Scanner scanner = new Scanner(System.in);
-
-        while(true){
-        System.out.println("Haz tu movimiento: Elije la posición de fila, teclea el tabulador, y luego, elije la posición de columna");
-        String turn1 = scanner.nextLine();
-        takeTurn(currentPlayer, turn1);
-
-        if (checkWinner()) {
-            System.out.println("¡El jugador " + currentPlayer + " ha ganado!");
-            break;
-        }
-        if (isBoardFull()) {
-            System.out.println("¡Empate! No quedan espacios disponibles.");
-            break;
-        }
+            while (turnCount < 9) { 
+                System.out.println("Turn " + (turnCount + 1) + ": Ingresa tu movimiento (fila, tabulador, columna)");
+                String turnInput = scanner.nextLine();
+                takeTurn(currentPlayer, turnInput);
+                
+                if (checkWinner(turnCount)) {
+                    System.out.println("¡Jugador " + currentPlayer + " ha ganado!");
+                    break;
+                }
+                // if (isBoardFull()) {
+                //     System.out.println("¡Empate! No quedan espacios disponibles.");
+                //     break;
+                }
+                turnCount++;
         scanner.close();
-        }
     }
-
+    
     private static void createBoard(){
         for (int row = 0; row < 3; row++){
             for (int column = 0; column < 3; column++){
@@ -60,6 +60,17 @@ private static char currentPlayer = 'X';
             return false;
         }
     }
+    }
+
+    private static boolean checkWinner(int turnCount){
+        if(turnCount >= 5){
+        System.out.println("Valoramos");
+        return true;
+        }
+        else{
+        return false;
+        }
+        //luego: línea de 3
     }
 
     private static void printBoard(){
