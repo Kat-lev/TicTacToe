@@ -10,12 +10,14 @@ private static int turnCount = 0;
         System.out.println("Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar");
         createBoard();
         printBoard();
+     
         Scanner scanner = new Scanner(System.in);
             while (turnCount < 9) { 
-                System.out.println("Turn " + (turnCount + 1) + ": Ingresa tu movimiento (fila, tabulador, columna)");
+                System.out.println("Player " + (currentPlayer) + ": Ingresa tu movimiento (fila, tabulador, columna)");
                 String turnInput = scanner.nextLine();
                 takeTurn(currentPlayer, turnInput);
                 
+                turnCount++;
                 if (checkWinner(turnCount)) {
                     System.out.println("¡Jugador " + currentPlayer + " ha ganado!");
                     break;
@@ -23,8 +25,9 @@ private static int turnCount = 0;
                 // if (isBoardFull()) {
                 //     System.out.println("¡Empate! No quedan espacios disponibles.");
                 //     break;
+               
                 }
-                turnCount++;
+                
         scanner.close();
     }
     
@@ -42,8 +45,7 @@ private static int turnCount = 0;
         } else {
             currentPlayer = 'X';
         }
-        System.out.println("Ahora toca " + currentPlayer);
-        }
+    }
 
     private static boolean validMovement (int row, int column, char currentPlayer){
         if (row < 0 || row > 2 || column < 0 || column > 2) {
