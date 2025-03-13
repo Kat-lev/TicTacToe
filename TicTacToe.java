@@ -10,10 +10,22 @@ private static char currentPlayer = 'X';
         createBoard();
         printBoard();
         Scanner scanner = new Scanner(System.in);
+
+        while(true){
         System.out.println("Haz tu movimiento: Elije la posición de fila, teclea el tabulador, y luego, elije la posición de columna");
         String turn1 = scanner.nextLine();
         takeTurn(currentPlayer, turn1);
+
+        if (checkWinner()) {
+            System.out.println("¡El jugador " + currentPlayer + " ha ganado!");
+            break;
+        }
+        if (isBoardFull()) {
+            System.out.println("¡Empate! No quedan espacios disponibles.");
+            break;
+        }
         scanner.close();
+        }
     }
 
     private static void createBoard(){
@@ -74,7 +86,6 @@ private static char currentPlayer = 'X';
             validMovement(row, column, currentPlayer);
     }       
 }
-
 
 
 
