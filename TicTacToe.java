@@ -10,30 +10,27 @@ private static int turnCount = 0;
         System.out.println("Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar");
         createBoard();
         printBoard();
-        
-     
-        Scanner scanner = new Scanner(System.in);
-            while (turnCount < 9) { 
+            Scanner scanner = new Scanner(System.in);
+                while (turnCount < 9) { 
                 System.out.println("Player " + (currentPlayer) + ": Ingresa tu movimiento (fila, tabulador, columna)");
                 String turnInput = scanner.nextLine();
-                takeTurn(currentPlayer, turnInput);
-                
-                turnCount++;
-                if (checkRound (turnCount) == true) {
-                    System.out.println("Han pasado " + turnCount + " movimientos");
-                    checkWinner(board, currentPlayer);  
-                } 
-                changePlayer();
-                // if (isBoardFull()) {
-                //     System.out.println("¡Empate! No quedan espacios disponibles.");
-                //     break;
-               
+                boolean validMove = takeTurn(currentPlayer, turnInput);
 
+                    if (validMove) {
+                    turnCount++;
+                    if (checkRound(turnCount) == true) {
+                    System.out.println("Han pasado " + turnCount + " movimientos");
+                    if (checkWinner(board, currentPlayer)) {
+                    break;
                 }
-                System.out.println("No queda espacio: ¡empate!");
-                
-        scanner.close();
     }
+                changePlayer(); 
+}
+}
+            System.out.println("No queda espacio: ¡empate!");
+            scanner.close();
+    }
+
     
     private static void createBoard(){
         for (int row = 0; row < 3; row++){
@@ -123,13 +120,13 @@ private static int turnCount = 0;
     }
 
 
-    public static void takeTurn(char currentPlayer, String turnInput){
-            String[] turnsInput = turnInput.split("\t");
-            int row = Integer.parseInt(turnsInput[0]);    
-            int column = Integer.parseInt(turnsInput[1]); 
+    public static boolean takeTurn(char currentPlayer, String turnInput) {
+        String[] turnsInput = turnInput.split("\t");
+        int row = Integer.parseInt(turnsInput[0]); 
+        int column = Integer.parseInt(turnsInput[1]); 
         System.out.println("Tu respuesta es " + row + " y " + column);
-            validMovement(row, column, currentPlayer);
-    }       
+        return validMovement(row, column, currentPlayer);
+        }
 }
 
 
