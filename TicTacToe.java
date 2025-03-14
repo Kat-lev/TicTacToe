@@ -83,7 +83,20 @@ private static int turnCount = 0;
         if(board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer){
         System.out.println("Fila ganada " +  currentPlayer);
         return true; 
-        } else {
+        }
+        if(board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer){
+        System.out.println("Columna ganada " +  currentPlayer);
+        return true;
+        } 
+        if(board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer){
+        System.out.println("Diagonal 1 ganado " +  currentPlayer);
+        return true;  
+        }
+        if(board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer){
+        System.out.println("Diagonal 2 ganado " +  currentPlayer);
+        return true;  
+        }
+        else {
         System.out.println("Nadie gana");
         }
     }
