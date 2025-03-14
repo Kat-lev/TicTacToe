@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class TicTacToe {
 
 private static char[][] board = new char [3][3];
@@ -13,6 +14,7 @@ public static final String ANSI_CYAN = "\u001B[36m";
 
 
     public static void main(String[] args){
+        TicTacToeWelcome.printWelcomeMessage();
         System.out.println(ANSI_PURPLE + "Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna." + ANSI_RESET);
         createBoard();
         printBoard();
