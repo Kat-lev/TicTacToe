@@ -5,9 +5,11 @@ public class TicTacToe {
 private static char[][] board = new char [3][3];
 private static char currentPlayer = 'X';
 private static int turnCount = 0;
+public static final String ANSI_PURPLE = "\u001B[35m";
+public static final String ANSI_RESET = "\u001B[0m";
 
     public static void main(String[] args){
-        System.out.println("Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar");
+        System.out.println(ANSI_PURPLE + "Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar" + ANSI_RESET);
         createBoard();
         printBoard();
             Scanner scanner = new Scanner(System.in);
