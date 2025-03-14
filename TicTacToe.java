@@ -30,6 +30,7 @@ private static int turnCount = 0;
                
 
                 }
+                System.out.println("No queda espacio: ¡empate!");
                 
         scanner.close();
     }
