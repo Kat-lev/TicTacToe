@@ -11,6 +11,7 @@ private static int turnCount = 0;
         createBoard();
         printBoard();
             Scanner scanner = new Scanner(System.in);
+            boolean gameWon = false;
                 while (turnCount < 9) { 
                 System.out.println("Player " + (currentPlayer) + ": Ingresa tu movimiento (fila, tabulador, columna)");
                 String turnInput = scanner.nextLine();
@@ -18,16 +19,19 @@ private static int turnCount = 0;
 
                     if (validMove) {
                     turnCount++;
-                    if (checkRound(turnCount) == true) {
-                    System.out.println("Han pasado " + turnCount + " movimientos");
-                    if (checkWinner(board, currentPlayer)) {
-                    break;
+                        if (checkRound(turnCount) == true) {
+                        System.out.println("Han pasado " + turnCount + " movimientos");
+                            if (checkWinner(board, currentPlayer)) {
+                            gameWon = true;
+                            break;
+                            }
+                        }
+                    changePlayer(); 
+                    }
+            }
+                if(gameWon == false){
+                System.out.println("No queda espacio: ¡empate!");
                 }
-    }
-                changePlayer(); 
-}
-}
-            System.out.println("No queda espacio: ¡empate!");
             scanner.close();
     }
 
@@ -56,7 +60,6 @@ private static int turnCount = 0;
         if (board[row][column] == '_' ) {
             board[row][column] = currentPlayer;
             printBoard();
-            //changePlayer();
             return true;
         } else {
             System.out.println("Espacio ocupado");
@@ -73,39 +76,30 @@ private static int turnCount = 0;
         else{
         return false;
         }
-        //luego: línea de 3
     }
 
-    private static boolean checkWinner(char[][] board, char currentPlayer ){
-      for (int i = 0; i < 3; i++){
-        if(board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer){
-        System.out.println("Fila ganada " +  currentPlayer);
-        return true; 
+    private static boolean checkWinner(char[][] board, char currentPlayer) {
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer) {
+                System.out.println("Fila ganada por " + currentPlayer);
+                return true;
+            }
+            if (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer) {
+                System.out.println("Columna ganada por " + currentPlayer);
+                return true;
+            }
         }
-        if(board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer){
-        System.out.println("Columna ganada " +  currentPlayer);
-        return true;
-        } 
-        if(board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer){
-        System.out.println("Diagonal 1 ganado " +  currentPlayer);
-        return true;  
+        if (board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) {
+            System.out.println("Diagonal 1 ganado por " + currentPlayer);
+            return true;
         }
-        if(board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer){
-        System.out.println("Diagonal 2 ganado " +  currentPlayer);
-        return true;  
+        if (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer) {
+            System.out.println("Diagonal 2 ganado por " + currentPlayer);
+            return true;
         }
-        else {
         System.out.println("Nadie gana");
-        }
-    }
         return false;
     }
-   //checkWinner
-    //fila 0
-    //si: hay un _ en la fila, 
-    //no hace falta pasar al próximo paso (break)
-    //si no hay, pasa a comprobar si hay 3x currentPlayer en la fila
-    //si no hay ganador, pasa a la fila 1
     
     private static void printBoard(){
         System.out.println("\n");
@@ -119,11 +113,10 @@ private static int turnCount = 0;
         }
     }
 
-
     public static boolean takeTurn(char currentPlayer, String turnInput) {
         String[] turnsInput = turnInput.split("\t");
-        int row = Integer.parseInt(turnsInput[0]); 
-        int column = Integer.parseInt(turnsInput[1]); 
+            int row = Integer.parseInt(turnsInput[0]); 
+            int column = Integer.parseInt(turnsInput[1]); 
         System.out.println("Tu respuesta es " + row + " y " + column);
         return validMovement(row, column, currentPlayer);
         }
