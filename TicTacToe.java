@@ -7,15 +7,19 @@ private static char currentPlayer = 'X';
 private static int turnCount = 0;
 public static final String ANSI_PURPLE = "\u001B[35m";
 public static final String ANSI_RESET = "\u001B[0m";
+public static final String ANSI_RED = "\u001B[31m";
+public static final String ANSI_CYAN = "\u001B[36m";
+
+
 
     public static void main(String[] args){
-        System.out.println(ANSI_PURPLE + "Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna. Dale a enter para empezar" + ANSI_RESET);
+        System.out.println(ANSI_PURPLE + "Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna." + ANSI_RESET);
         createBoard();
         printBoard();
             Scanner scanner = new Scanner(System.in);
             boolean gameWon = false;
                 while (turnCount < 9) { 
-                System.out.println("Player " + (currentPlayer) + ": Ingresa tu movimiento (fila, tabulador, columna)");
+                System.out.println( "Player " + ANSI_CYAN + (currentPlayer) + ANSI_RESET +": Ingresa tu movimiento (fila, tabulador, columna)");
                 String turnInput = scanner.nextLine();
                 boolean validMove = takeTurn(currentPlayer, turnInput);
 
@@ -56,7 +60,7 @@ public static final String ANSI_RESET = "\u001B[0m";
 
     private static boolean validMovement (int row, int column, char currentPlayer){
         if (row < 0 || row > 2 || column < 0 || column > 2) {
-            System.out.println("Movimiento inválido. Ingresar número de 0 a 2");
+            System.out.println(ANSI_RED + "Movimiento inválido. Ingresar número de 0 a 2" +  ANSI_RESET);
             return false;
     } else {
         if (board[row][column] == '_' ) {
@@ -64,7 +68,7 @@ public static final String ANSI_RESET = "\u001B[0m";
             printBoard();
             return true;
         } else {
-            System.out.println("Espacio ocupado");
+            System.out.println(ANSI_RED+ "Espacio ocupado"+ ANSI_RESET);
             return false;
         }
     }
