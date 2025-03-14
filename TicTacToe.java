@@ -15,13 +15,13 @@ public static final String ANSI_CYAN = "\u001B[36m";
 
     public static void main(String[] args){
         TicTacToeWelcome.printWelcomeMessage();
-        System.out.println(ANSI_PURPLE + "Bienvenide al juego Tic Tac Toe. Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna." + ANSI_RESET);
+        System.out.println(ANSI_PURPLE + "Para empezar a jugar, elige una casilla para tu movimiento. \nEscribe el número de la fila, presiona la tecla de tabulación y luego ingresa el número de la columna. \nLos números van del 0 al 2." + ANSI_RESET);
         createBoard();
         printBoard();
             Scanner scanner = new Scanner(System.in);
             boolean gameWon = false;
                 while (turnCount < 9) { 
-                System.out.println( "Player " + ANSI_CYAN + (currentPlayer) + ANSI_RESET +": Ingresa tu movimiento (fila, tabulador, columna)");
+                System.out.println("¡Player " + ANSI_CYAN + (currentPlayer) + ANSI_RESET +", te toca! " + ANSI_CYAN + "Ingresa tu movimiento (fila, tabulador, columna)." + ANSI_RESET);
                 String turnInput = scanner.nextLine();
                 boolean validMove = takeTurn(currentPlayer, turnInput);
 
@@ -38,7 +38,7 @@ public static final String ANSI_CYAN = "\u001B[36m";
                     }
             }
                 if(gameWon == false){
-                System.out.println("No queda espacio: ¡empate!");
+                System.out.println(ANSI_CYAN + "No queda espacio en el tablero: ¡es un empate!" + ANSI_RESET);
                 }
             scanner.close();
     }
@@ -62,7 +62,7 @@ public static final String ANSI_CYAN = "\u001B[36m";
 
     private static boolean validMovement (int row, int column, char currentPlayer){
         if (row < 0 || row > 2 || column < 0 || column > 2) {
-            System.out.println(ANSI_RED + "Movimiento inválido. Ingresar número de 0 a 2" +  ANSI_RESET);
+            System.out.println(ANSI_RED + "Movimiento inválido. Elige números de 0 a 2" +  ANSI_RESET);
             return false;
     } else {
         if (board[row][column] == '_' ) {
@@ -78,7 +78,7 @@ public static final String ANSI_CYAN = "\u001B[36m";
 
     private static boolean checkRound(int turnCount){
         if(turnCount >= 5){
-        System.out.println("Valoramos");
+        // System.out.println("Valoramos");
         return true;
         }
         else{
@@ -89,23 +89,23 @@ public static final String ANSI_CYAN = "\u001B[36m";
     private static boolean checkWinner(char[][] board, char currentPlayer) {
         for (int i = 0; i < 3; i++) {
             if (board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer) {
-                System.out.println("Fila ganada por " + currentPlayer);
+                System.out.println(ANSI_PURPLE +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ ANSI_RESET);
                 return true;
             }
             if (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer) {
-                System.out.println("Columna ganada por " + currentPlayer);
+                System.out.println(ANSI_PURPLE +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ ANSI_RESET);
                 return true;
             }
         }
         if (board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) {
-            System.out.println("Diagonal 1 ganado por " + currentPlayer);
+            System.out.println(ANSI_PURPLE +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ ANSI_RESET);
             return true;
         }
         if (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer) {
-            System.out.println("Diagonal 2 ganado por " + currentPlayer);
+            System.out.println(ANSI_PURPLE +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ ANSI_RESET);
             return true;
         }
-        System.out.println("Nadie gana");
+        System.out.println("Nadie ha ganado aún.");
         return false;
     }
     
@@ -125,7 +125,7 @@ public static final String ANSI_CYAN = "\u001B[36m";
         String[] turnsInput = turnInput.split("\t");
             int row = Integer.parseInt(turnsInput[0]); 
             int column = Integer.parseInt(turnsInput[1]); 
-        System.out.println("Tu respuesta es " + row + " y " + column);
+        // System.out.println("Tu respuesta es " + row + " y " + column);
         return validMovement(row, column, currentPlayer);
         }
 }
