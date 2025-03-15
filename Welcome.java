@@ -1,4 +1,4 @@
-public class TicTacToeWelcome {
+public class Welcome {
     public static void main(String[] args) {
         printWelcomeMessage();
     }
@@ -13,8 +13,8 @@ public class TicTacToeWelcome {
         """;
         String welcomeMessage = """
         ════════════════════════════════════
-            ¡Bienvenide a Tic-Tac-Toe!    
-          ¿Serás el maestro del juego?   
+           ¡Bienvenide al juego del Gato!    
+                ¿Liste para jugar?   
         ════════════════════════════════════
         """;
       
