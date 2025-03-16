@@ -1,3 +1,4 @@
+package com.tictactoe;
 public class Welcome {
     public static void main(String[] args) {
         printWelcomeMessage();

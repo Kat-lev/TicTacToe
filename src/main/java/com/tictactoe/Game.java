@@ -1,3 +1,4 @@
+package com.tictactoe;
 public class Game {
     
     public static char currentPlayer = 'X';
@@ -21,7 +22,7 @@ public class Game {
 
     public static boolean takeTurn(char currentPlayer, String turnInput) {
         if (!turnInput.matches("^[0-9]\t[0-9]$")) {
-            System.out.println(TicTacToe.ANSI_RED + "Por favor ingresa dos números (0-2) separados por tabulador" + TicTacToe.ANSI_RESET);
+            System.out.println(App.ANSI_RED + "Por favor ingresa dos números (0-2) separados por tabulador" + App.ANSI_RESET);
             return false;
         }
 
@@ -34,7 +35,7 @@ public class Game {
 
     public static boolean validMovement (int row, int column, char currentPlayer){
         if (row < 0 || row > 2 || column < 0 || column > 2) {
-            System.out.println(TicTacToe.ANSI_RED + "Movimiento inválido. Elige números de 0 a 2" +  TicTacToe.ANSI_RESET);
+            System.out.println(App.ANSI_RED + "Movimiento inválido. Elige números de 0 a 2" +  App.ANSI_RESET);
             return false;
         } else {
         if (Board.board[row][column] == '_' ) {
@@ -42,7 +43,7 @@ public class Game {
             Board.printBoard();
             return true;
         } else {
-            System.out.println(TicTacToe.ANSI_RED+ "Espacio ocupado"+ TicTacToe.ANSI_RESET);
+            System.out.println(App.ANSI_RED+ "Espacio ocupado"+ App.ANSI_RESET);
             return false;
         }
      }
@@ -84,7 +85,7 @@ public class Game {
     }
     
     private static void printWinner(char currentPlayer) {
-        System.out.println(TicTacToe.ANSI_CYAN + "¡Gana player " + currentPlayer + "! ¡Felicidades!" + TicTacToe.ANSI_RESET);
+        System.out.println(App.ANSI_CYAN + "¡Gana player " + currentPlayer + "! ¡Felicidades!" + App.ANSI_RESET);
     }
     
     

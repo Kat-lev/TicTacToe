@@ -1,3 +1,4 @@
+package com.tictactoe;
 public class Board {
 
     public static char[][] board = new char [3][3];

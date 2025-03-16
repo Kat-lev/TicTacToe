@@ -1,7 +1,8 @@
+package com.tictactoe;
 import java.util.Scanner;
 
 
-public class TicTacToe {
+public class App {
 
 
 private static int turnCount = 0;
