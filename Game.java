@@ -2,7 +2,6 @@ public class Game {
     
     public static char currentPlayer = 'X';
 
-
     public static void changePlayer(){
         if (currentPlayer == 'X') {
             currentPlayer = 'O';
@@ -48,27 +47,45 @@ public class Game {
         }
      }
     } 
-    
+
     public static boolean checkWinner(char[][] board, char currentPlayer) {
         for (int i = 0; i < 3; i++) {
-            if (board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer) {
-                System.out.println(TicTacToe.ANSI_CYAN +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
+            if (!containsEmpty(board[i][0], board[i][1], board[i][2])) {
+                if (board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer) {
+                    printWinner(currentPlayer);
+                    return true;
+                }
+            }
+            if (!containsEmpty(board[0][i], board[1][i], board[2][i])) {
+                if (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer) {
+                    printWinner(currentPlayer);
+                    return true;
+                }
+            }
+        }
+        if (!containsEmpty(board[0][0], board[1][1], board[2][2])) {
+            if (board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) {
+                printWinner(currentPlayer);
                 return true;
             }
-            if (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer) {
-                System.out.println(TicTacToe.ANSI_CYAN +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
+        }
+        if (!containsEmpty(board[0][2], board[1][1], board[2][0])) {
+            if (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer) {
+                printWinner(currentPlayer);
                 return true;
             }
         }
-        if (board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) {
-            System.out.println(TicTacToe.ANSI_CYAN +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
-            return true;
-        }
-        if (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer) {
-            System.out.println(TicTacToe.ANSI_CYAN +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
-            return true;
-        }
-        System.out.println("Nadie ha ganado aún.");
         return false;
     }
+    
+
+    private static boolean containsEmpty(char a, char b, char c) {
+        return a == '_' || b == '_' || c == '_';
+    }
+    
+    private static void printWinner(char currentPlayer) {
+        System.out.println(TicTacToe.ANSI_CYAN + "¡Gana player " + currentPlayer + "! ¡Felicidades!" + TicTacToe.ANSI_RESET);
+    }
+    
+    
 }
