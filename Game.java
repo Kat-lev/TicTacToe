@@ -21,7 +21,7 @@ public class Game {
     }
 
     public static boolean takeTurn(char currentPlayer, String turnInput) {
-        if (!turnInput.matches("^[0-2]\t[0-2]$")) {
+        if (!turnInput.matches("^[0-9]\t[0-9]$")) {
             System.out.println(TicTacToe.ANSI_RED + "Por favor ingresa dos números (0-2) separados por tabulador" + TicTacToe.ANSI_RESET);
             return false;
         }
