@@ -80,15 +80,22 @@ Puedes usarlo, modificarlo y compartirlo libremente. 🎉
 Hecho con ❤️ por Kat Leverton y Larissa Saud. 
 
 ## ☎️ Contactos
-Linkedin:
 
-[Kat Leverton](https://www.linkedin.com/in/kat-leverton/)
-
-[Larissa Saud](https://www.linkedin.com/in/larissasaud/)
-
-
-Github: 
-
-[Kat Leverton](https://github.com/Kat-lev//)
-
-[Larissa Saud](https://github.com/Kat-lev//)
+<table style="border-collapse: collapse; border: none;">
+  <tr>
+    <td align="center" style="border: none;">
+      <img src="https://github.com/user-attachments/assets/6b926678-a291-45ee-ab90-ca1dbfd3dfd3" alt="kat-avatar" width="80">
+      <br><b>Kat Leverton</b>
+      <br>
+      <a href="https://www.linkedin.com/in/kat-leverton/">LinkedIn</a> |
+      <a href="https://github.com/Kat-lev/">GitHub</a>
+    </td>
+    <td align="center" style="border: none;">
+      <img src="https://github.com/user-attachments/assets/89108af5-007e-428f-b199-692beac81cc6" alt="larissa-avatar" width="80">
+      <br><b>Larissa Saud</b>
+      <br>
+      <a href="https://www.linkedin.com/in/larissasaud/">LinkedIn</a> |
+      <a href="https://github.com/Kat-lev/">GitHub</a>
+    </td>
+  </tr>
+</table>
