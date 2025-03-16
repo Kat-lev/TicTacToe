@@ -14,7 +14,7 @@ public static final String ANSI_RED = "\u001B[31m";
 
     public static void main(String[] args){
         Welcome.printWelcomeMessage();
-        System.out.println(ANSI_GREEN + "Bienvenide al juego Tic Tac Toe.\n Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna." + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Para empezar elije una casilla, escribe el número de la fila y de la columna." + ANSI_RESET);
         Board.createBoard();
         Board.printBoard();
             Scanner scanner = new Scanner(System.in);
