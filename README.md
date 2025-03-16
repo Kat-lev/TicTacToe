@@ -1,6 +1,9 @@
 # 🎮 Tic Tac Toe - Java
 
 ¡Bienvenide a **Tic Tac Toe**! Un juego clásico de tres en raya desarrollado en **Java** para jugar en la terminal. 🚀
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/88d16dfe-a884-4a84-9a60-11b79afa1c97" alt="Tic Tac Toe Demo" width="500">
+</p>
 
 ## 📌 Descripción
 Este proyecto implementa el popular juego **Tic Tac Toe** (Tres en raya) en la terminal, permitiendo que dos jugadores se turnen para colocar sus símbolos en un tablero de 3x3 hasta que haya un ganador o se declare un empate.
