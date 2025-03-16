@@ -37,7 +37,7 @@ public static final String ANSI_RED = "\u001B[31m";
                     }
             }
                 if(gameWon == false){
-                System.out.println("No queda espacio: ¡empate!");
+                System.out.println(ANSI_CYAN + "No queda espacio: ¡empate!" +  ANSI_RESET);
                 }
             scanner.close();
             }
