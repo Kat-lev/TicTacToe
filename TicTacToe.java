@@ -5,16 +5,16 @@ public class TicTacToe {
 
 
 private static int turnCount = 0;
-public static final String ANSI_PURPLE = "\u001B[35m";
-public static final String ANSI_RESET = "\u001B[0m";
-public static final String ANSI_RED = "\u001B[31m";
-public static final String ANSI_CYAN = "\u001B[36m";
 
+public static final String ANSI_RESET = "\u001B[0m";
+public static final String ANSI_CYAN = "\u001B[36m";
+public static final String ANSI_GREEN = "\u001B[32m";
+public static final String ANSI_RED = "\u001B[31m";
 
 
     public static void main(String[] args){
         Welcome.printWelcomeMessage();
-        System.out.println(ANSI_PURPLE + "Bienvenide al juego Tic Tac Toe.\n Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna." + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Bienvenide al juego Tic Tac Toe.\n Para empezar a jugar, elije una casilla, escribe el número de la fila y de la columna." + ANSI_RESET);
         Board.createBoard();
         Board.printBoard();
             Scanner scanner = new Scanner(System.in);

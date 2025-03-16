@@ -52,20 +52,20 @@ public class Game {
     public static boolean checkWinner(char[][] board, char currentPlayer) {
         for (int i = 0; i < 3; i++) {
             if (board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer) {
-                System.out.println(TicTacToe.ANSI_PURPLE +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
+                System.out.println(TicTacToe.ANSI_CYAN +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
                 return true;
             }
             if (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer) {
-                System.out.println(TicTacToe.ANSI_PURPLE +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
+                System.out.println(TicTacToe.ANSI_CYAN +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
                 return true;
             }
         }
         if (board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) {
-            System.out.println(TicTacToe.ANSI_PURPLE +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
+            System.out.println(TicTacToe.ANSI_CYAN +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
             return true;
         }
         if (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer) {
-            System.out.println(TicTacToe.ANSI_PURPLE +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
+            System.out.println(TicTacToe.ANSI_CYAN +"¡Gana player " + currentPlayer + "! ¡Felicidades!"+ TicTacToe.ANSI_RESET);
             return true;
         }
         System.out.println("Nadie ha ganado aún.");
