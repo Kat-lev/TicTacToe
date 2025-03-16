@@ -28,7 +28,6 @@ public static final String ANSI_RED = "\u001B[31m";
                     if (validMove) {
                     turnCount++;
                         if (Game.checkRound(turnCount) == true) {
-                        System.out.println("Han pasado " + turnCount + " movimientos");
                             if (Game.checkWinner(Board.board, Game.currentPlayer)) {
                             gameWon = true;
                             break;
