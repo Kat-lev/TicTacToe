@@ -53,7 +53,7 @@ java TicTacToe
 
 ✅ Detección de ganador o empate
 
-✅ Mensajes en colores ANSI
+✅ Mensajes en colores ANSI para mejorar la accessibilidad según los criterios de WGAC 
 
 ## 🔧 Mejoras Futuras
 Implementar una interfaz gráfica
